@@ -1,4 +1,25 @@
 daj neki mali kod kao primer i kako onda da dobijem w i h ekrana
 
+import pygame
+import sys
+# Initialize Pygame
+pygame.init()
+
+# Set the screen to fullscreen
+screen = pygame.display.set_mode((0, 0), pygame.FULLSCREEN)
+
+# Start the main loop
+while True:
+    # Check for events
+    for event in pygame.event.get():
+        # Check for the quit event
+        if event.type == pygame.QUIT:
+            # Quit the game
+            pygame.quit()
+            sys.exit()
+
+W i H ekrana su kod set_mode(0, 0), prvi argument je W drugi H, tako nije fiksno da mora fullscreen jel se jednostavno moze izbrisati samo ,pygame.FULLSCREEN
 Stefi ti bi mogao da pravis skin selektor, to je ekran odmah posle sto kliknes play na main meniju
-Vidi sa Lazarom sve sto ti treba
+
+
+ajde sad cu istrazivati to, video sam da ima 3 dugmeta na mainu znaci to je novi UI nakon sto kliknemo play??
