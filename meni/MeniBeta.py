@@ -21,16 +21,16 @@ class MainMenu:
         screen.blit(textS, RectS)
 
         ##settings
-        pg.draw.rect(screen, "black", (30, 200, 500, 780), 10, 10)
-        pg.draw.rect(screen, "black", (30, 200, 500, 150), 0, 10)
+        pg.draw.rect(screen, "black", (30, 200, 500, 780), 10, 25)
+        pg.draw.rect(screen, "black", (30, 200, 500, 150), 0, 25)
         textS = font.render('Settings', True, "white")
         RectS = textS.get_rect()
         RectS.center = (280, 275)
         screen.blit(textS, RectS)
 
         ##leaderboard
-        pg.draw.rect(screen, "black", (1390, 200, 500, 780), 10)
-        pg.draw.rect(screen, "black", (1390, 200, 500, 150))
+        pg.draw.rect(screen, "black", (1390, 200, 500, 780), 10, 25)
+        pg.draw.rect(screen, "black", (1390, 200, 500, 150), 0, 25)
         textW = font.render('Most win', True, "white")
         RectW = textW.get_rect()
         RectW.center = (1640, 275)
@@ -47,27 +47,27 @@ class MainMenu:
         screen.blit(textP, RectP)
 
         if (mpos[0] >= 560 and mpos[0] <= 1360 and mpos[1] <= 560 and mpos[1] >= 420):
-            pg.draw.rect(screen, "gray", (560, 420, 800, 140))
+            pg.draw.rect(screen, "gray", (560, 420, 800, 140), 0, 25)
         else:
-            pg.draw.rect(screen, "black", (560, 420, 800, 140))
+            pg.draw.rect(screen, "black", (560, 420, 800, 140), 0, 25)
         textI = font.render('Singleplayer', True, "white")
         RectI = textI.get_rect()
         RectI.center = (960, 490)
         screen.blit(textI, RectI)
 
         if (mpos[0] >= 560 and mpos[0] <= 1360 and mpos[1] <= 730 and mpos[1] >= 590):
-            pg.draw.rect(screen, "gray", (560, 590, 800, 140))
+            pg.draw.rect(screen, "gray", (560, 590, 800, 140), 0, 25)
         else:
-            pg.draw.rect(screen, "black", (560, 590, 800, 140))
+            pg.draw.rect(screen, "black", (560, 590, 800, 140), 0, 25)
         textC = font.render('Credits', True, "white")
         RectC = textC.get_rect()
         RectC.center = (960, 660)
         screen.blit(textC, RectC)
 
         if (mpos[0] >= 560 and mpos[0] <= 1360 and mpos[1] <= 900 and mpos[1] >= 760):
-            pg.draw.rect(screen, "gray", (560, 760, 800, 140))
+            pg.draw.rect(screen, "gray", (560, 760, 800, 140), 0, 25)
         else:
-            pg.draw.rect(screen, "black", (560, 760, 800, 140))
+            pg.draw.rect(screen, "black", (560, 760, 800, 140), 0, 25)
         textQ = font.render('Quit Game', True, "white")
         RectQ = textQ.get_rect()
         RectQ.center = (960, 830)
