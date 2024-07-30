@@ -1,0 +1,61 @@
+import pygame
+import sys
+
+# Initialize Pygame
+pygame.init()
+
+# Constants
+SCREEN_WIDTH, SCREEN_HEIGHT = 800, 600
+LEFT_SIDE_WIDTH = SCREEN_WIDTH // 2
+SKIN_COUNT = 5  # Number of skins available
+
+# Colors
+WHITE = (255, 255, 255)
+BLACK = (0, 0, 0)
+
+# Setup the screen
+screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
+pygame.display.set_caption('Skin Changer Room')
+
+# Load skins
+skins = [pygame.Surface((100, 100)) for _ in range(SKIN_COUNT)]
+for i, skin in enumerate(skins):
+    skin.fill((255 - i*50, i*50, 100 + i*30))
+
+# Skin indices
+left_skin_index = 0
+right_skin_index = 0
+
+# Main loop
+running = True
+while running:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            running = False
+        elif event.type == pygame.KEYDOWN:
+            # Left side skin changer
+            if event.key == pygame.K_a:
+                left_skin_index = (left_skin_index - 1) % SKIN_COUNT
+            elif event.key == pygame.K_d:
+                left_skin_index = (left_skin_index + 1) % SKIN_COUNT
+            # Right side skin changer
+            elif event.key == pygame.K_LEFT:
+                right_skin_index = (right_skin_index - 1) % SKIN_COUNT
+            elif event.key == pygame.K_RIGHT:
+                right_skin_index = (right_skin_index + 1) % SKIN_COUNT
+
+    # Draw everything
+    screen.fill(WHITE)
+
+    # Draw left side
+    pygame.draw.rect(screen, BLACK, (0, 0, LEFT_SIDE_WIDTH, SCREEN_HEIGHT))
+    screen.blit(skins[left_skin_index], (LEFT_SIDE_WIDTH // 2 - 50, SCREEN_HEIGHT // 2 - 50))
+
+    # Draw right side
+    pygame.draw.rect(screen, BLACK, (LEFT_SIDE_WIDTH, 0, LEFT_SIDE_WIDTH, SCREEN_HEIGHT))
+    screen.blit(skins[right_skin_index], (LEFT_SIDE_WIDTH + LEFT_SIDE_WIDTH // 2 - 50, SCREEN_HEIGHT // 2 - 50))
+
+    pygame.display.flip()
+
+pygame.quit()
+sys.exit()
