@@ -9,9 +9,6 @@ screen = pg.display.set_mode((0, 0), pg.FULLSCREEN)
 clock = pg.time.Clock()
 running = True
 
-
-
-
 white = ((255,255,255))
 blue = ((0,0,255))
 green = ((0,255,0))
@@ -396,10 +393,10 @@ def clearstarestrelice():
     
 def glavnestrelice():
     debljina = 5
-    nacrtajstrelicu2(white, 400, 900, 17, 270, debljina)
-    nacrtajstrelicu2(white, 585, 945, 17, 180, debljina)
-    nacrtajstrelicu2(white, 725, 855, 17, 0, debljina)
-    nacrtajstrelicu2(white, 910, 900, 17, 90, debljina)
+    nacrtajstrelicu2(white, 400, 900, 15, 270, debljina)
+    nacrtajstrelicu2(white, 585, 945, 15, 180, debljina)
+    nacrtajstrelicu2(white, 725, 855, 15, 0, debljina)
+    nacrtajstrelicu2(white, 910, 900, 15, 90, debljina)
 
 
     #nacrtajstrelicu(black, 400, 900, 15, 270)
