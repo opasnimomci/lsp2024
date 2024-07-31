@@ -313,7 +313,7 @@ class Strelica:
         self.y = oy
         self.boja = boja
         self.m = m
-        self.speed = 1
+        self.speed = 10
         self.teta = teta
         self.vertices = koordi(self.boja, self.x, self.y, self.m, self.teta)
         self.g = 0.5 
@@ -325,8 +325,6 @@ class Strelica:
         self.vertices = koordi(self.boja, self.x, self.y, self.m, self.teta)
 
     def draw(self):
-        print(self.vertices)
-        #pg.draw.polygon(screen, RED, self.vertices)
         nacrtajstrelicu(self.boja, self.x, self.y, self.m, self.teta)
 
 
@@ -365,21 +363,24 @@ def drawgore():
 
 
 while running:
-    kontrole = [False,False,False,False]
-    if ser is None:
-        print("Sranje nije povezano")
-        running = False
-        break
+    #kontrole = [False,False,False,False]
+    #if ser is None:
+     #   print("Sranje nije povezano")
+     #   running = False
+     #   break
     for event in pg.event.get():
         if event.type == pg.QUIT:
             running = False
-    gyro_data = read_gyro()
-    if gyro_data:
-        gx, gy, gz = gyro_data
-        kontrole = detect_movement(gx, gy, HIGHV)
+    #gyro_data = read_gyro()
+    #if gyro_data:
+    #    gx, gy, gz = gyro_data
+    #   kontrole = detect_movement(gx, gy, HIGHV)
 
-    print(kontrole)
 
+
+    #TEMPORARY CODE
+    kontrole = pg.key.get_pressed()
+    player1.update(kontrole)
     # Draw players ZAMENITI SA ANIMACIJAMA KASNIJE
     pg.draw.rect(screen, player1.skin, (*PLAYER1_POS, PLAYER_WIDTH, PLAYER_HEIGHT))
     pg.draw.rect(screen, player2.skin, (*PLAYER2_POS, PLAYER_WIDTH, PLAYER_HEIGHT))
@@ -391,7 +392,7 @@ while running:
         x.draw()
 
     pg.display.flip()
-    clock.tick(600)
+    clock.tick(30)
     #crkavanje
     pobeda = ""
     if(player1.HP <= 0 or player2.HP <= 0):
@@ -402,8 +403,7 @@ while running:
             pobeda = "Second player has won the game!"
         else:
             pobeda = "First player has won the game!"
-        
-        #STEFIJEV KOD + MARKOVE ANIMACIJE PADAJU OVDE
+
     
     
 if ser is not None:
