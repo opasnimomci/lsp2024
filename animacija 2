@@ -1,0 +1,99 @@
+import pygame
+import sys
+
+pygame.init()
+
+SCREEN_WIDTH, SCREEN_HEIGHT = 1200, 800
+
+screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
+
+class Character:
+    def __init__(self, HP, skin, name, poz):
+        self.HP = HP
+        self.skin = skin
+        self.name = name
+        self.poz = poz
+            
+idle_sundjer1 = pygame.image.load("idle_sundjer1.png")
+idle_sundjer2 = pygame.image.load("idle_sundjer2.png")
+
+idle_goblin = pygame.image.load("goblin.png")
+idle_goblin2 = pygame.image.load("goblin_2.png")
+
+idle_bird1 = pygame.image.load("bird_1.png")
+idle_bird2 = pygame.image.load("bird_2.png")
+
+idle_yellow_bird1 = pygame.image.load("yellow_bird_1.png")
+idle_yellow_bird2 = pygame.image.load("yellow_bird_2.png")
+
+idle_svemirac1 = pygame.image.load("svemirac_1.png")
+idle_svemirac2 = pygame.image.load("svemirac_2.png")
+
+idle_demoncina1 = pygame.image.load("demoncina_1.png")
+idle_demoncina2 = pygame.image.load("demoncina_2.png")
+
+idle_vojnik1 = pygame.image.load("vojnik_1.png")
+idle_vojnik2 = pygame.image.load("vojnik_2.png")
+
+idle_trump1 = pygame.image.load("donald1.png")
+idle_trump2 = pygame.image.load("donald2.png")
+
+idle_baldy1 = pygame.image.load("baldi1.png")
+idle_baldy2 = pygame.image.load("baldi2.png")
+
+idle_krava1 = pygame.image.load("krava1.png")
+idle_krava2 = pygame.image.load("krava2.png")
+
+idle_sid1 = pygame.image.load("sid1.png")
+idle_sid2 = pygame.image.load("sid2.png")
+
+idle_rock1 = pygame.image.load("rock1.png")
+idle_rock2 = pygame.image.load("rock2.png")
+
+
+
+IDLE_animacije = {
+    "sundjer" : [idle_sundjer1, idle_sundjer2],
+    "goblin" : [idle_goblin, idle_goblin2],
+    "bird" : [idle_bird1, idle_bird2],
+    "yellow bird" : [idle_yellow_bird1, idle_yellow_bird2],
+    "svemirac" : [idle_svemirac1, idle_svemirac2],
+    "demoncina" : [idle_demoncina1, idle_demoncina2],
+    "vojnik" : [idle_vojnik1, idle_vojnik2],
+    "trump" : [idle_trump1, idle_trump2],
+    "baldi" : [idle_baldy1, idle_baldy2],
+    "krava" : [idle_krava1, idle_krava2],
+    "sid" : [idle_sid1, idle_sid2],
+    "rock" : [idle_rock1, idle_rock2],
+}
+
+def idle_animacija(lik, br):
+    IDLE_animacije[lik.skin][br] = pygame.transform.scale(IDLE_animacije[lik.skin][br], (100, 200))
+    screen.blit(IDLE_animacije[lik.skin][br], lik.poz)
+
+clock = pygame.time.Clock()
+br = 0
+frame_count = 0
+lik1 = Character(50, "baldi", "rump", (100, 575))
+lik2 = Character(50, "rock", "baldy", (1000, 575))
+
+running = True
+while running:
+    screen.fill((0, 0, 0))
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            running = False
+
+    
+    idle_animacija(lik1, br)
+    idle_animacija(lik2, br)
+    
+    frame_count += 1
+    if frame_count % 30 == 0:  
+        br = 1 - br
+
+    pygame.display.update()
+    clock.tick(60)  
+
+pygame.quit()
+sys.exit()
