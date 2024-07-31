@@ -201,7 +201,7 @@ while running:
 
 
 #SKIN SELECTOR KOD 
-print(12345)
+
 
 
 screen.fill((0,0,0))
@@ -364,18 +364,19 @@ def drawgore():
 
 while running:
     #kontrole = [False,False,False,False]
-    #if ser is None:
-     #   print("Sranje nije povezano")
-     #   running = False
-     #   break
+    if ser is None:
+        print("Sranje nije povezano")
+        running = False
+        break
     for event in pg.event.get():
         if event.type == pg.QUIT:
-            running = False
-    #gyro_data = read_gyro()
-    #if gyro_data:
-    #    gx, gy, gz = gyro_data
-    #   kontrole = detect_movement(gx, gy, HIGHV)
-
+         running = False
+    '''
+    gyro_data = read_gyro()
+    if gyro_data:
+        gx, gy, gz = gyro_data
+        kontrole = detect_movement(gx, gy, HIGHV)
+    '''
 
 
     #TEMPORARY CODE
