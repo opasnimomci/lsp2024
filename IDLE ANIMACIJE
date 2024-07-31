@@ -1,0 +1,100 @@
+import pygame
+import sys
+
+pygame.init()
+
+SCREEN_WIDTH, SCREEN_HEIGHT = 1200, 800
+
+screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
+
+class Character:
+    def __init__(self, HP, skin, name, poz):
+        self.HP = HP
+        self.skin = skin
+        self.name = name
+        self.poz = poz
+            
+idle_sundjer1 = pygame.image.load("idle_sundjer1.png")
+idle_sundjer2 = pygame.image.load("idle_sundjer2.png")
+
+idle_goblin = pygame.image.load("goblin.png")
+idle_goblin2 = pygame.image.load("goblin_2.png")
+
+idle_bird1 = pygame.image.load("bird_1.png")
+idle_bird2 = pygame.image.load("bird_2.png")
+
+idle_yellow_bird1 = pygame.image.load("yellow_bird_1.png")
+idle_yellow_bird2 = pygame.image.load("yellow_bird_2.png")
+
+idle_li1 = pygame.image.load("li_1.png")
+idle_li2 = pygame.image.load("li_2.png")
+
+idle_svemirac1 = pygame.image.load("svemirac_1.png")
+idle_svemirac2 = pygame.image.load("svemirac_2.png")
+
+idle_zaljubljena1 = pygame.image.load("zaljuibljena_1.png")
+idle_zaljubljena2 = pygame.image.load("zaljubljea_.png")
+
+idle_naucnik1 = pygame.image.load("naucinik_1.png")
+idle_naucnik2 = pygame.image.load("naucinik_2.png")
+
+idle_demon1 = pygame.image.load("demon_1.png")
+idle_demon2 = pygame.image.load("demon_2.png")
+
+idle_boginja_cveca1 = pygame.image.load("boginjacveca_1.png")
+idle_boginja_cveca2 = pygame.image.load("boginajcvca_2.png")
+
+idle_demoncina1 = pygame.image.load("demoncina_1.png")
+idle_demoncina2 = pygame.image.load("demoncina_2.png")
+
+idle_vojnik1 = pygame.image.load("vojnik_1.png")
+idle_vojnik2 = pygame.image.load("vojnik_2.png")
+
+
+
+IDLE_animacije = {
+    "sundjer" : [idle_sundjer1, idle_sundjer2],
+    "goblin" : [idle_goblin, idle_goblin2],
+    "bird" : [idle_bird1, idle_bird2],
+    "yellow bird" : [idle_yellow_bird1, idle_yellow_bird2],
+    "li" : [idle_li1, idle_li2],
+    "svemirac" : [idle_svemirac1, idle_svemirac2],
+    "zaljubljena" : [idle_zaljubljena1, idle_zaljubljena2],
+    "naucnik" : [idle_naucnik1, idle_naucnik2],
+    "demon" : [idle_demon1, idle_demon2],
+    "boginja cveca" : [idle_boginja_cveca1, idle_boginja_cveca2],
+    "demoncina" : [idle_demoncina1, idle_demoncina2],
+    "vojnik" : [idle_vojnik1, idle_vojnik2],
+}
+
+def idle_animacija(lik, br):
+    imgrect = IDLE_animacije[lik.skin][br].get_rect()
+    imgrect.center = lik.poz
+    screen.blit(IDLE_animacije[lik.skin][br], imgrect)
+
+clock = pygame.time.Clock()
+br = 0
+frame_count = 0
+lik1 = Character(50, "vojnik", "goblin", (100, 700))
+lik2 = Character(50, "naucnik", "svemirac", (1100, 700))
+
+running = True
+while running:
+    screen.fill((0, 0, 0))
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            running = False
+
+    
+    idle_animacija(lik1, br)
+    idle_animacija(lik2, br)
+    
+    frame_count += 1
+    if frame_count % 30 == 0:  
+        br = 1 - br
+
+    pygame.display.update()
+    clock.tick(60)  
+
+pygame.quit()
+sys.exit()
