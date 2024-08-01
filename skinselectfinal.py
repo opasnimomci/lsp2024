@@ -8,6 +8,10 @@ running = True
 ##mapa
 map = "white"
 
+carImg = pg.image.load('monke.jpg')
+bob = pg.image.load('freaky.jpg')
+hairy = pg.image.load('hairy.jpg')
+
 class SkinSelector:
     def __init__ (self, user1, user2, active1, active2, R, num1, num2, skinnum, skins, skinname):
         self.user1 = user1
@@ -72,11 +76,44 @@ class SkinSelector:
         skincen1 = pg.Rect(0, 0, 100, 100)
         skincen1.center = (300, 725)
         ##crta skin levo
-        pg.draw.rect(screen, self.skins[self.num1], skincen1)
-        textskin1 = font2.render(self.skinname[self.num1], True, "black")
-        Rect1 = textskin1.get_rect()
-        Rect1.center = (300, 1000)
-        screen.blit(textskin1, Rect1)
+        if (self.num1 != 5):
+            pg.draw.rect(screen, self.skins[self.num1], skincen1)
+            textskin1 = font2.render(self.skinname[self.num1], True, "black")
+            Rect1 = textskin1.get_rect()
+            Rect1.center = (300, 1000)
+            screen.blit(textskin1, Rect1)
+        elif self.user1 == "monke":
+            Rect1 = carImg.get_rect()
+            Rect1.center = (300, 725)
+            screen.blit(carImg, Rect1)
+            textskin1 = font2.render("pipacu te", True, "black")
+            Rect1 = textskin1.get_rect()
+            Rect1.center = (300, 1000)
+            screen.blit(textskin1, Rect1)
+        elif self.user1 == "hairynigga635":
+            Rect1 = hairy.get_rect()
+            Rect1.center = (300, 725)
+            screen.blit(hairy, Rect1)
+            textskin1 = font2.render("hairynigga635", True, "black")
+            Rect1 = textskin1.get_rect()
+            Rect1.center = (300, 1000)
+            screen.blit(textskin1, Rect1)
+        elif self.user1 == "freaky":
+            Rect1 = bob.get_rect()
+            Rect1.center = (300, 725)
+            screen.blit(bob, Rect1)
+            textskin1 = font2.render("pick up", True, "black")
+            Rect1 = textskin1.get_rect()
+            Rect1.center = (300, 1000)
+            screen.blit(textskin1, Rect1)
+        elif self.user1 == "help":
+            pg.quit()
+        else:
+            pg.draw.rect(screen, "black", skincen1)
+            textskin1 = font2.render("???", True, "black")
+            Rect1 = textskin1.get_rect()
+            Rect1.center = (300, 1000)
+            screen.blit(textskin1, Rect1)
 
         skincen2 = pg.Rect(0, 0, 100, 100)
         skincen2.center = (1620, 725)
@@ -135,11 +172,11 @@ while running:
                     SkinSelector.user2 += event.unicode
             elif event.key == pg.K_a:
                 if SkinSelector.num1 == 0:
-                    SkinSelector.num1 = SkinSelector.skinnum - 1
+                    SkinSelector.num1 = SkinSelector.skinnum
                 else:
                     SkinSelector.num1 -= 1
             elif event.key == pg.K_d:
-                if SkinSelector.num1 == SkinSelector.skinnum - 1:
+                if SkinSelector.num1 == SkinSelector.skinnum:
                     SkinSelector.num1 = 0
                 else:
                     SkinSelector.num1 += 1
@@ -156,6 +193,8 @@ while running:
     screen.fill(map)
 
     SkinSelector.DrawSkinSelector()
+
+    ##screen.blit(carImg, (700, 400))
 
     pg.display.update()
 
