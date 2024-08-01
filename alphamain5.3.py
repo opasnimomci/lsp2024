@@ -565,7 +565,7 @@ class Strelica:
         self.speed = 5
         self.teta = teta
         self.staraboja = boja
-        self.kakvaje = "perfect"
+        self.kakvaje = "bad"
         self.vertices = koordi(self.boja, self.x, self.y, self.m, self.teta)
         self.g = 0.5
 
@@ -586,8 +586,8 @@ class Strelica:
 
 strel = []
 
-perfektogr = 5
-goodogr = 10
+perfektogr = 10
+goodogr = 20
 
 def generisistrelicu():
     koja = random.randint(0, 3)
@@ -640,9 +640,9 @@ def proverizelenekoorde():
                 if(strelica.kakvaje == "perfect"):
                     strelica.boja = green
                 elif(strelica.kakvaje == "good"):
-                    strelica.boja == yellow
+                    strelica.boja = yellow
                 else:
-                    strelica.boja == red
+                    strelica.boja = red
             if (strelica.y >= 895) and (strelica.y <= 905):
                 #strelica.staraboja = strelica.boja
                 #strelica.boja = green
@@ -668,9 +668,9 @@ def proverizelenekoorde():
                 if(strelica.kakvaje == "perfect"):
                     strelica.boja = green
                 elif(strelica.kakvaje == "good"):
-                    strelica.boja == yellow
+                    strelica.boja = yellow
                 else:
-                    strelica.boja == red
+                    strelica.boja = red
             if (strelica.y >= 940) and (strelica.y <= 950):
                 #strelica.staraboja = strelica.boja
                 #strelica.boja = green
@@ -695,9 +695,9 @@ def proverizelenekoorde():
                 if(strelica.kakvaje == "perfect"):
                     strelica.boja = green
                 elif(strelica.kakvaje == "good"):
-                    strelica.boja == yellow
+                    strelica.boja = yellow
                 else:
-                    strelica.boja == red
+                    strelica.boja = red
             if (strelica.y >= 850) and (strelica.y <= 860):
                 #strelica.staraboja = strelica.boja
                 #strelica.boja = green
@@ -720,9 +720,9 @@ def proverizelenekoorde():
                 if(strelica.kakvaje == "perfect"):
                     strelica.boja = green
                 elif(strelica.kakvaje == "good"):
-                    strelica.boja == yellow
+                    strelica.boja = yellow
                 else:
-                    strelica.boja == red
+                    strelica.boja = red
             if (strelica.y >= 895) and (strelica.y <= 905):
                 #strelica.staraboja = strelica.boja
                 #strelica.boja = green
