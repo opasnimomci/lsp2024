@@ -1176,7 +1176,7 @@ TRESH = 35
 # MAIN GAME
 
 framecnt = 0
-pg.mixer.music.load('LevelUpBeat')
+pg.mixer.music.load('LevelUpBeat.mp3')
 pg.mixer.music.play(-1)
 
 while running:
