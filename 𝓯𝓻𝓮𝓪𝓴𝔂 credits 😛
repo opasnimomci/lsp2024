@@ -1,0 +1,51 @@
+import pygame
+import sys
+
+pygame.init()
+
+SCREEN_WIDTH, SCREEN_HEIGHT = 1200, 800
+screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
+
+yellow = (34, 123, 160)
+
+Filip_slika = pygame.image.load("freaky.jpg")
+text_Filip = pygame.image.load("freaky.jpg")
+Stefi_slika = pygame.image.load("freaky.jpg")
+text_Stefi = pygame.image.load("freaky.jpg")
+Lazar_slika = pygame.image.load("freaky.jpg")
+text_Lazar = pygame.image.load("freaky.jpg")
+Marko_slika = pygame.image.load("freaky.jpg")
+text_Marko = pygame.image.load("freaky.jpg")
+
+credits_speed = 0
+credits_time = 10
+
+def credits(credits_speed, credits_time):
+    
+    running = True
+    while running:
+        for event in pygame.event.get():
+            if event == pygame.QUIT:
+                tunning = False
+        credits_speed += 0.2
+        screen.fill(yellow)
+        screen.blit(text_Filip, (580, credits_speed))
+        screen.blit(Filip_slika, (580, -400  + credits_speed))
+        screen.blit(text_Stefi, (580, -700 + credits_speed))
+        screen.blit(Stefi_slika, (580, -1000 + credits_speed))
+        screen.blit(text_Lazar, (580, -1300 + credits_speed))
+        screen.blit(Lazar_slika, (580, -1600 + credits_speed))
+        screen.blit(text_Marko, (580, -1900 + credits_speed))
+        screen.blit(Marko_slika, (580, -2200 + credits_speed))
+        credits_time -= 0.001
+        if (credits_time < 0):
+                    return
+        pygame.display.update()
+
+
+credits(credits_speed, credits_time)
+
+
+
+pygame.quit()
+sys.exit()
