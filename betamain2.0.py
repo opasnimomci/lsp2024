@@ -117,6 +117,19 @@ class Character:
         self.name = name
         self.poz = poz
 
+PLAYER_WIDTH, PLAYER_HEIGHT = 75 / 1200 * W, 75 / 800 * H
+PLAYER1_POS = (100 / 1200 * W, H - PLAYER_HEIGHT)
+PLAYER2_POS = (W - 100 / 1200 * W - PLAYER_WIDTH, H - PLAYER_HEIGHT)
+player1 = Character(
+    skin= skin1, 
+    name=ime1,
+    poz=(*PLAYER1_POS, PLAYER_WIDTH, PLAYER_HEIGHT)
+)
+player2 = Character(
+    skin= skin2,
+    name=ime2,
+    poz=(*PLAYER2_POS, PLAYER_WIDTH, PLAYER_HEIGHT)
+)
 
 
 class MainMenu:
@@ -1741,21 +1754,7 @@ def multiplejer():
         framecnt += 1
         screen.fill(map)
 
-PLAYER_WIDTH, PLAYER_HEIGHT = 75 / 1200 * W, 75 / 800 * H
-PLAYER1_POS = (100 / 1200 * W, H - PLAYER_HEIGHT)
-PLAYER2_POS = (W - 100 / 1200 * W - PLAYER_WIDTH, H - PLAYER_HEIGHT)
-player1 = Character(
-    skin= skin1, 
-    name=ime1,
-    poz=(*PLAYER1_POS, PLAYER_WIDTH, PLAYER_HEIGHT)
-)
-player2 = Character(
-    skin= skin2,
-    name=ime2,
-    poz=(*PLAYER2_POS, PLAYER_WIDTH, PLAYER_HEIGHT)
-)
-player1_name_text = font.render(player1.name, True, white)
-player2_name_text = font.render(player2.name, True, white)
+
 strel.clear()
 strel2.clear()
 running = True
@@ -1776,9 +1775,12 @@ if multiplayer:
     player2.skin = skin2
     player1.name = ime1
     player2.name = ime2
-    # PLAYER DEF
-    
+    player1_name_text = font.render(player1.name, True, white)
+    player2_name_text = font.render(player2.name, True, white)
     multiplejer()
+
+
+
 if singlplayer:
     skinselectorsingle()
     skinplejera= SkinSelectorSingle.skins[SkinSelectorSingle.num1]
@@ -1790,6 +1792,8 @@ if singlplayer:
     player1.name = imeplejera
     player2.skin = skinbosa
     player2.name = imebosa
+    player1_name_text = font.render(player1.name, True, white)
+    player2_name_text = font.render(player2.name, True, white)
     singlplejer()
 running = True
     
