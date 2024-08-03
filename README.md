@@ -1,1 +1,1 @@
-LSP Gambling Simulator
+Petljovizija simulator
